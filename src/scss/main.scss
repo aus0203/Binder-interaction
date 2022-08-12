@@ -1,0 +1,127 @@
+$primary-color: #343434;
+$primary-color-500: #565656;
+$primary-color-200: #d2d2d2;
+$surface-light: #ffffff;
+$app-background: #f9f9f9;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: $app-background;
+}
+
+main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.binder {
+  position: relative;
+  cursor: pointer;
+  .binder-foreground {
+    position: absolute;
+    z-index: 1;
+    padding: 12px;
+    width: 96px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+
+    .title-section {
+      text-align: center;
+      padding: 8px 4px;
+      height: 100px;
+      .title {
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+    .bottom-control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      .count {
+        color: $surface-light;
+        font-weight: 700;
+      }
+      .label {
+        width: 32px;
+        height: 32px;
+        background-color: red;
+        border-radius: 50px;
+      }
+      .overflown-btn {
+        padding: 4px;
+        transition: all 0.3s ease-in-out;
+        .more {
+          width: 16px;
+          height: 16px;
+        }
+        &:hover {
+          background-color: $primary-color-500;
+        }
+      }
+    }
+  }
+  .binder-background {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 900px;
+    -webkit-perspective: 1200px;
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+    transform: rotateX(0deg);
+    .front {
+      background-color: $primary-color;
+      padding: 12px;
+      height: 240px;
+      border-radius: 2px;
+
+      .title-background {
+        transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+        background-color: $surface-light;
+        height: 100px;
+        width: 72px;
+        border-radius: 2px;
+      }
+    }
+    .top {
+      position: absolute;
+      background-color: $primary-color-200;
+      width: 92px;
+      height: 80px;
+      transform: rotateX(90deg) translateZ(50px);
+      backface-visibility: hidden;
+    }
+  }
+
+  &:hover .binder-foreground {
+    margin-top: 12px;
+    height: 228px;
+  }
+
+  &:hover .binder-background {
+    transform: rotateX(-20deg);
+    .front {
+      .title-background {
+        height: 92px;
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #f9f9f9;
+}
+
+main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.binder {
+  position: relative;
+  cursor: pointer;
+}
+.binder .binder-foreground {
+  position: absolute;
+  z-index: 1;
+  padding: 12px;
+  width: 96px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+}
+.binder .binder-foreground .title-section {
+  text-align: center;
+  padding: 8px 4px;
+  height: 100px;
+}
+.binder .binder-foreground .title-section .title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.binder .binder-foreground .bottom-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.binder .binder-foreground .bottom-control .count {
+  color: #ffffff;
+  font-weight: 700;
+}
+.binder .binder-foreground .bottom-control .label {
+  width: 32px;
+  height: 32px;
+  background-color: red;
+  border-radius: 50px;
+}
+.binder .binder-foreground .bottom-control .overflown-btn {
+  padding: 4px;
+  transition: all 0.3s ease-in-out;
+}
+.binder .binder-foreground .bottom-control .overflown-btn .more {
+  width: 16px;
+  height: 16px;
+}
+.binder .binder-foreground .bottom-control .overflown-btn:hover {
+  background-color: #565656;
+}
+.binder .binder-background {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 900px;
+  -webkit-perspective: 1200px;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+  transform: rotateX(0deg);
+}
+.binder .binder-background .front {
+  background-color: #343434;
+  padding: 12px;
+  height: 240px;
+  border-radius: 2px;
+}
+.binder .binder-background .front .title-background {
+  transition: all 0.3s cubic-bezier(0.217, 0.6, 0.355, 1);
+  background-color: #ffffff;
+  height: 100px;
+  width: 72px;
+  border-radius: 2px;
+}
+.binder .binder-background .top {
+  position: absolute;
+  background-color: #d2d2d2;
+  width: 92px;
+  height: 80px;
+  transform: rotateX(90deg) translateZ(50px);
+  backface-visibility: hidden;
+}
+.binder:hover .binder-foreground {
+  margin-top: 12px;
+  height: 228px;
+}
+.binder:hover .binder-background {
+  transform: rotateX(-20deg);
+}
+.binder:hover .binder-background .front .title-background {
+  height: 92px;
+}
+
+/*# sourceMappingURL=/main.77bb5cfd.css.map */
